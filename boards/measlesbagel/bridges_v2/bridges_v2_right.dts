@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "crosses_v2.dts"
+#include "bridges_v2.dts"
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <input/processors.dtsi>
 
 / {
   chosen {
-    model = "crosses_v2_right";
-    compatible = "gggw,crosses_v2_right";
+    model = "bridges_v2_right";
+    compatible = "measlesbagel,bridges_v2_right";
   };
 };
 
@@ -102,9 +102,8 @@
     };
 };
 
-// Central-only: a dedicated USB CDC-ACM serial port for the host config web app
-// (Web Serial), separate from ZMK Studio's RPC port. See
-// zmk-trackball-config/docs/adr/0004.
+// Central-only: a dedicated USB CDC-ACM serial port for the inherited host
+// config web app. This will move to zmk-pointing-tools with the pointing policy.
 &zephyr_udc0 {
     tbcfg_acm: tbcfg_acm {
         compatible = "zephyr,cdc-acm-uart";

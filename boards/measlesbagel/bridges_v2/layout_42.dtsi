@@ -2,7 +2,7 @@
 #include <physical_layouts.dtsi>
 
 / {
-    gggw_crosses_42_layout: gggw_crosses_42_layout {
+    measlesbagel_bridges_42_layout: measlesbagel_bridges_42_layout {
         compatible = "zmk,physical-layout";
         display-name = "42 Key";
 
@@ -54,9 +54,9 @@
 
 };
 
-&layouts_gggw_crosses_position_map {
-    gggw_crosses_forty_two_posmap: ft {
-        physical-layout = <&gggw_crosses_42_layout>;
+&layouts_measlesbagel_bridges_position_map {
+    measlesbagel_bridges_forty_two_posmap: ft {
+        physical-layout = <&measlesbagel_bridges_42_layout>;
         positions
             = <42 43 44 45 46 47 48 49 50 51 52 53>
             , < 0  1  2  3  4  5  6  7  8  9 10 11>

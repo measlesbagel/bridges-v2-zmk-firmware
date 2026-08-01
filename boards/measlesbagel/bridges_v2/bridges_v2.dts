@@ -12,28 +12,28 @@
 #include <input/processors.dtsi>
 #include <input/processors/report_rate_limit.dtsi>
 
-#include "crosses_v2_pinctrl.dtsi"
+#include "bridges_v2_pinctrl.dtsi"
 
 #include "layout_54.dtsi"
 #include "layout_42.dtsi"
 #include "layout_36.dtsi"
 
-&gggw_crosses_54_layout {
+&measlesbagel_bridges_54_layout {
   transform = <&default_transform>;
 };
 
-&gggw_crosses_42_layout {
+&measlesbagel_bridges_42_layout {
   transform = <&forty_two_transform>;
 };
 
-&gggw_crosses_36_layout {
+&measlesbagel_bridges_36_layout {
   transform = <&thirty_six_transform>;
 };
 
 / {
     chosen {
       zmk,kscan = &kscan0;
-      zmk,physical-layout = &gggw_crosses_54_layout;
+      zmk,physical-layout = &measlesbagel_bridges_54_layout;
       zephyr,code-partition = &code_partition;
       zephyr,sram = &sram0;
       zephyr,flash = &flash0;
@@ -241,7 +241,7 @@
       // nodes must be enabled on both halves so the central can resolve
       // locality and the peripheral can resolve the relayed name. Node
       // names <= 8 chars (see above). sensor_device is set per side in
-      // crosses_v2_left.dts / crosses_v2_right.dts.
+      // bridges_v2_left.dts / bridges_v2_right.dts.
       dpi_cycle_left: dpi_cy_l {
         compatible = "zmk,behavior-paw32xx-res-cycle";
         #binding-cells = <1>;

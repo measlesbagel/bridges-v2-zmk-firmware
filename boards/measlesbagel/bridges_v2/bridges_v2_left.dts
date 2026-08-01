@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "crosses_v2.dts"
+#include "bridges_v2.dts"
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <input/processors.dtsi>
 
 / {
   chosen {
-    model = "crosses_v2_left";
-    compatible = "gggw,crosses_v2_left";
+    model = "bridges_v2_left";
+    compatible = "measlesbagel,bridges_v2_left";
   };
 };
 

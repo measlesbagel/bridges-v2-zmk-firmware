@@ -5,7 +5,7 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-    chosen { zmk,physical-layout = &gggw_crosses_54_layout; };
+    chosen { zmk,physical-layout = &measlesbagel_bridges_54_layout; };
     
     keymap {
         compatible = "zmk,keymap";
@@ -46,7 +46,7 @@
         mouse_layer {
             display-name = "Mouse";
             bindings = <
-                &studio_unlock  &trans  &trans     &trans     &trans     &trans     &trans    &trans     &trans       &trans       &trans       &trans
+                &none           &trans  &trans     &trans     &trans     &trans     &trans    &trans     &trans       &trans       &trans       &trans
                 &trans          &trans  &trans     &trans     &trans     &trans     &trans    &trans     &trans       &trans       &trans       &trans
                 &trans          &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &trans     &trans    &trans     &trans       &trans       &trans       &trans
                 &trans          &trans  &trans     &trans     &trans     &trans     &trans    &trans     &trans       &trans       &trans       &trans

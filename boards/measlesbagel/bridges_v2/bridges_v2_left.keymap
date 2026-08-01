@@ -3,4 +3,4 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "crosses_v2.keymap"
+#include "bridges_v2.keymap"

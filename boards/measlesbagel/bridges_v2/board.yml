@@ -1,0 +1,9 @@
+boards:
+  - name: bridges_v2_left
+    vendor: measlesbagel
+    socs:
+      - name: nrf52840
+  - name: bridges_v2_right
+    vendor: measlesbagel
+    socs:
+      - name: nrf52840

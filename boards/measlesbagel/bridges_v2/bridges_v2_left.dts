@@ -69,8 +69,10 @@
     sensor_device = <&trackball_peripheral>;
 };
 
-// Transport raw movement to the central. User-facing cursor/scroll/text
-// policy belongs to the central configuration, not the peripheral board.
+// Coalesce complete movement frames and pack X/Y into one split event. This
+// preserves raw distance while keeping BLE notification traffic bounded.
+// User-facing cursor/scroll/text policy remains on the central.
 &trackball_peripheral_split {
     device = <&trackball_peripheral>;
+    input-processors = <&zip_report_rate_limit 16>, <&zip_xyz>;
 };

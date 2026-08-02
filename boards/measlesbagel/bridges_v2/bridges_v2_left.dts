@@ -69,8 +69,8 @@
     sensor_device = <&trackball_peripheral>;
 };
 
-// Overrides for the input-split child node
+// Transport raw movement to the central. User-facing cursor/scroll/text
+// policy belongs to the central configuration, not the peripheral board.
 &trackball_peripheral_split {
     device = <&trackball_peripheral>;
-    input-processors = <&zip_periph_ball>;
 };

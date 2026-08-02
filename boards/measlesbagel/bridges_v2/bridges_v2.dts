@@ -11,6 +11,7 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
 #include <input/processors/report_rate_limit.dtsi>
+#include <input/processors/xyz.dtsi>
 
 #include "bridges_v2_pinctrl.dtsi"
 

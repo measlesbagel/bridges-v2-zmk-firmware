@@ -10,18 +10,19 @@ endif # BOARD_BRIDGES_V2_LEFT
 
 if BOARD_BRIDGES_V2_RIGHT
 
-config ZMK_SPLIT_ROLE_CENTRAL
-  default y
-
-config ZMK_KEYBOARD_NAME
-  default "Bridges V2"
-
 config BOARD
   default "bridges v2 right"
 
 endif # BOARD_BRIDGES_V2_RIGHT
 
 if BOARD_BRIDGES_V2_LEFT || BOARD_BRIDGES_V2_RIGHT
+
+# Neither half is the split central by default. Build a half with the
+# bridges_v2_central snippet to make it central, or use the
+# bridges_v2_dongle shield and build both halves as they are.
+
+config ZMK_KEYBOARD_NAME
+  default "Bridges V2"
 
 config ZMK_SPLIT
   default y

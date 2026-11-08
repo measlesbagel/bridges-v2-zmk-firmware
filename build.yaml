@@ -1,4 +1,15 @@
 ---
+# Each half's plain build is a peripheral and works with any central. Pick
+# one central: a half built with the bridges_v2_central snippet, or the
+# dongle. Flash settings_reset to every device when switching centrals.
 include:
   - board: bridges_v2_left
   - board: bridges_v2_right
+  - board: bridges_v2_left
+    snippet: bridges_v2_central
+    artifact-name: bridges_v2_left_central
+  - board: bridges_v2_right
+    snippet: bridges_v2_central
+    artifact-name: bridges_v2_right_central
+  - board: xiao_ble//zmk
+    shield: bridges_v2_dongle

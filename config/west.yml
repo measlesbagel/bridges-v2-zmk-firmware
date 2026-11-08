@@ -4,33 +4,14 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: badjeff
-      url-base: https://github.com/badjeff
     - name: black-trooper
       url-base: https://github.com/black-trooper
-    - name: gggw
-      url-base: https://github.com/Good-Great-Grand-Wonderful
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
-    - name: zmk-input-processor-report-rate-limit
-      remote: badjeff
-      revision: main
-    - name: zmk-input-processor-xyz
-      remote: badjeff
-      revision: main
     - name: zmk-driver-paw3222
       remote: black-trooper
-      revision: main
-    - name: zmk-behavior-paw32xx-res-cycle
-      remote: gggw
-      revision: main
-    - name: zmk-input-processor-pipeline-switch
-      remote: gggw
-      revision: main
-    - name: zmk-trackball-config
-      remote: gggw
       revision: main
   self:
     path: config

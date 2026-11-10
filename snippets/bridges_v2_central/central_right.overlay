@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2026 Vincent Franco
+ * SPDX-License-Identifier: MIT
+ *
+ * The right half as split central: its own ball is read locally, the
+ * left ball arrives on the left split channel.
+ */
+
+&trackball_left_split {
+    status = "okay";
+};
+
+&trackball_right_listener {
+    status = "okay";
+    device = <&trackball_right>;
+};
+
+&trackball_left_listener {
+    status = "okay";
+};
+
+&config_acm {
+    status = "okay";
+};

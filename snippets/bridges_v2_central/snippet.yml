@@ -1,0 +1,13 @@
+# Makes a Bridges V2 half the split central: it connects to the host and
+# receives the other half's keys and trackball motion. Build the other half
+# without this snippet. Its firmware is the same as for a dongle setup.
+name: bridges_v2_central
+append:
+  EXTRA_CONF_FILE: central.conf
+boards:
+  /bridges_v2_left.*/:
+    append:
+      EXTRA_DTC_OVERLAY_FILE: central_left.overlay
+  /bridges_v2_right.*/:
+    append:
+      EXTRA_DTC_OVERLAY_FILE: central_right.overlay

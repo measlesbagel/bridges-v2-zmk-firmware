@@ -1,0 +1,49 @@
+/*
+ * Copyright (c) 2026 Vincent Franco
+ * SPDX-License-Identifier: MIT
+ *
+ * A dongle as the Bridges V2 split central. It has no keys or sensor of its
+ * own: both halves send their keys and trackball motion to it. Build both
+ * halves without the bridges_v2_central snippet.
+ *
+ * Tested target: the ZMK Prospector (Seeed XIAO nRF52840, board
+ * xiao_ble//zmk). Any nRF52840 dongle board with USB should work.
+ */
+
+#include "../../measlesbagel/bridges_v2/bridges_v2_common.dtsi"
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+};
+
+&trackball_left_split {
+    status = "okay";
+};
+
+&trackball_right_split {
+    status = "okay";
+};
+
+&trackball_left_listener {
+    status = "okay";
+};
+
+&trackball_right_listener {
+    status = "okay";
+};
+
+&zephyr_udc0 {
+    /* USB serial port for host tools such as the pointing tuner. */
+    config_acm: config_acm {
+        compatible = "zephyr,cdc-acm-uart";
+    };
+};

@@ -1,0 +1,9 @@
+file_format: "1"
+id: bridges_v2_dongle
+name: Bridges V2 Dongle
+type: shield
+url: https://ergokeyboards.com
+requires:
+  - seeed_xiao
+features:
+  - pointer

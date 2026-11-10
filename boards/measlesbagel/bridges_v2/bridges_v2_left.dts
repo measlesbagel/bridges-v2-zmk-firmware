@@ -4,8 +4,10 @@
  */
 
 #include "bridges_v2.dts"
-#include <zephyr/dt-bindings/input/input-event-codes.h>
-#include <input/processors.dtsi>
+
+/* This half carries the left trackball. Configs can test for it to attach
+ * settings that need the local sensor node. */
+#define BRIDGES_V2_LEFT_TRACKBALL 1
 
 / {
   chosen {
@@ -38,7 +40,7 @@
 &spi0 {
     cs-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
 
-    trackball_peripheral: trackball_peripheral@0 {
+    trackball_left: trackball_left@0 {
         status = "okay";
         compatible = "pixart,paw3222";
         reg = <0>;
@@ -49,30 +51,9 @@
     };
 };
 
-&dpi_cycle_left {
-    sensor_device = <&trackball_peripheral>;
-};
-
-// Never invoked on this half (EVENT_SOURCE locality runs it on the right
-// half); points at the local sensor only to satisfy the required phandle.
-&dpi_cycle_right {
-    sensor_device = <&trackball_peripheral>;
-};
-
-// Left CPI set targets the local peripheral sensor (relayed here from the
-// central). cpi_set_r is a placeholder on this half (never invoked here).
-&cpi_set_l {
-    sensor_device = <&trackball_peripheral>;
-};
-
-&cpi_set_r {
-    sensor_device = <&trackball_peripheral>;
-};
-
-// Coalesce complete movement frames and pack X/Y into one split event. This
-// preserves raw distance while keeping BLE notification traffic bounded.
-// User-facing cursor/scroll/text policy remains on the central.
-&trackball_peripheral_split {
-    device = <&trackball_peripheral>;
-    input-processors = <&zip_report_rate_limit 16>, <&zip_xyz>;
+/* Send this ball's motion on the left channel when another device is
+ * central. On a central left half the channel is unused. */
+&trackball_left_split {
+    status = "okay";
+    device = <&trackball_left>;
 };

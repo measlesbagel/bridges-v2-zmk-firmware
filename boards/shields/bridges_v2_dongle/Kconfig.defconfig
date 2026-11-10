@@ -1,0 +1,22 @@
+# Copyright (c) 2026 Vincent Franco
+# SPDX-License-Identifier: MIT
+
+if SHIELD_BRIDGES_V2_DONGLE
+
+config ZMK_KEYBOARD_NAME
+    default "Bridges V2"
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+# Both halves connect to the dongle.
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+
+config ZMK_POINTING
+    default y
+
+endif # SHIELD_BRIDGES_V2_DONGLE
